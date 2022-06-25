@@ -137,4 +137,5 @@ class DoublyLinkedList:
 if __name__ == '__main__':
     ll = DoublyLinkedList()
     ll.insert_values(["banana","mango","grapes","orange"])
+    ll.get_last_node()
     ll.print_backward()
