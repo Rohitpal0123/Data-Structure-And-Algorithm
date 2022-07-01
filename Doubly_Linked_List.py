@@ -4,6 +4,7 @@ class Node:
         self.next = next
         self.prev = prev
 
+
 class DoublyLinkedList:
     def __init__(self):
         self.head = None
@@ -18,32 +19,32 @@ class DoublyLinkedList:
             llstr += str(itr.data)+' --> ' if itr.next else str(itr.data)
             itr = itr.next
         print(llstr)
-        
-    def print_backward(self):
-            if self.head is None:
-                print("Linked list is empty")
-                return
 
-            last_node = self.get_last_node()
-            itr = last_node
-            llstr = ''
-            while itr:
-                llstr += itr.data + '-->'
-                itr = itr.prev
-            print("Link list in reverse: ", llstr)
+    def print_backward(self):
+        if self.head is None:
+            print("Linked list is empty")
+            return
+
+        last_node = self.get_last_node()
+        itr = last_node
+        llstr = ''
+        while itr:
+            llstr += itr.data + '-->'
+            itr = itr.prev
+        print("Link list in reverse: ", llstr)
 
     def get_last_node(self):
-            itr = self.head
-            while itr.next:
-                itr = itr.next
+        itr = self.head
+        while itr.next:
+            itr = itr.next
 
-            return itr
+        return itr
 
     def get_length(self):
         count = 0
         itr = self.head
         while itr:
-            count+=1
+            count += 1
             itr = itr.next
 
         return count
@@ -65,10 +66,10 @@ class DoublyLinkedList:
         itr.next = Node(data, None)
 
     def insert_at(self, index, data):
-        if index<0 or index>self.get_length():
+        if index < 0 or index > self.get_length():
             raise Exception("Invalid Index")
 
-        if index==0:
+        if index == 0:
             self.insert_at_begining(data)
             return
 
@@ -84,10 +85,10 @@ class DoublyLinkedList:
             count += 1
 
     def remove_at(self, index):
-        if index<0 or index>=self.get_length():
+        if index < 0 or index >= self.get_length():
             raise Exception("Invalid Index")
 
-        if index==0:
+        if index == 0:
             self.head = self.head.next
             return
 
@@ -99,7 +100,7 @@ class DoublyLinkedList:
                 break
 
             itr = itr.next
-            count+=1
+            count += 1
 
     def insert_values(self, data_list):
         self.head = None
@@ -107,7 +108,7 @@ class DoublyLinkedList:
             self.insert_at_end(data)
 
     def insert_after_value(self, data_after, data_to_insert):
-        #Search for first occurance of data_after value in linked list
+        # Search for first occurance of data_after value in linked list
         # Now insert data_to_insert after data_after node
         itr = self.head
         while itr:
@@ -116,7 +117,7 @@ class DoublyLinkedList:
                 itr.next = node
                 break
             itr = itr.next
-    
+
     def remove_by_value(self, data):
         if self.head is None:
             return
@@ -131,11 +132,10 @@ class DoublyLinkedList:
                 itr.next = itr.next.next
                 break
             itr = itr.next
-                
-    
-            
+
+
 if __name__ == '__main__':
     ll = DoublyLinkedList()
-    ll.insert_values(["banana","mango","grapes","orange"])
+    ll.insert_values(["banana", "mango", "grapes", "orange"])
     ll.get_last_node()
     ll.print_backward()
