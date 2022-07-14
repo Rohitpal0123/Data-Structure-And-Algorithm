@@ -1,3 +1,4 @@
+# Like stack, queue is a linear data structure that stores items in First In First Out (FIFO) manner. With a queue the least recently added item is removed first. A good example of queue is any queue of consumers for a resource where the consumer that came first is served first.
 """Make a Queue class using a list!
 Hint: You can use any Python list method
 you'd like! Try to write each one in as 
